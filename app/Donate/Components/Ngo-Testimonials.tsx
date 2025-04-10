@@ -1,6 +1,13 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Quote } from "lucide-react"
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Quote } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -27,7 +34,7 @@ const testimonials = [
       "Our elderly beneficiaries look forward to these meals. The variety and quality of food from the college canteen has made a real difference.",
     avatar: "/placeholder.svg?height=40&width=40",
   },
-]
+];
 
 export function NGOTestimonials() {
   return (
@@ -46,17 +53,26 @@ export function NGOTestimonials() {
               >
                 <div className="flex items-start gap-4">
                   <Avatar className="h-10 w-10 border-2 border-green-100">
-                    <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                    <AvatarFallback>{testimonial.name.charAt(0)}</AvatarFallback>
+                    <AvatarImage
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                    />
+                    <AvatarFallback>
+                      {testimonial.name.charAt(0)}
+                    </AvatarFallback>
                   </Avatar>
                   <div className="space-y-1">
                     <h4 className="font-semibold">{testimonial.name}</h4>
-                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                    <p className="text-xs text-muted-foreground">
+                      {testimonial.role}
+                    </p>
                   </div>
                 </div>
                 <div className="mt-3 relative">
                   <Quote className="absolute -top-1 -left-1 h-4 w-4 text-green-300 opacity-50" />
-                  <p className="text-sm pl-4 text-muted-foreground">{testimonial.content}</p>
+                  <p className="text-sm pl-4 text-muted-foreground">
+                    {testimonial.content}
+                  </p>
                 </div>
               </div>
             ))}
@@ -71,7 +87,7 @@ export function NGOTestimonials() {
         </CardHeader>
         <CardContent className="p-0">
           <div className="grid grid-cols-2 gap-1">
-            <img
+            {/* <img
               src="/Ngo.jpg?height=120&width=160"
               alt="NGO volunteers"
               className="w-full h-32 object-cover hover:opacity-90 transition-opacity rounded-2xl"
@@ -90,11 +106,42 @@ export function NGOTestimonials() {
               src="/deliver.jpeg?height=120&width=160"
               alt="Happy recipients"
               className="w-full h-32 object-cover hover:opacity-90 transition-opacity rounded-2xl"
+            /> */}
+
+            <Image
+              src="/Ngo.jpg"
+              alt="NGO volunteers"
+              width={160}
+              height={120}
+              className="w-full h-32 object-cover hover:opacity-90 transition-opacity rounded-2xl"
+            />
+
+            <Image
+              src="/donate.jpeg"
+              alt="Food distribution"
+              width={160}
+              height={120}
+              className="w-full h-32 object-cover hover:opacity-90 transition-opacity"
+            />
+
+            <Image
+              src="/FoodDistribution.jpg"
+              alt="Happy recipients"
+              width={160}
+              height={120}
+              className="w-full h-32 object-cover hover:opacity-90 transition-opacity"
+            />
+
+            <Image
+              src="/deliver.jpeg"
+              alt="Happy recipients"
+              width={160}
+              height={120}
+              className="w-full h-32 object-cover hover:opacity-90 transition-opacity rounded-2xl"
             />
           </div>
         </CardContent>
       </Card>
     </div>
-  )
+  );
 }
-
