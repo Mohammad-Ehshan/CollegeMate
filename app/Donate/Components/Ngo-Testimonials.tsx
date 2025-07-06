@@ -87,26 +87,6 @@ export function NGOTestimonials() {
         </CardHeader>
         <CardContent className="p-0">
           <div className="grid grid-cols-2 gap-1">
-            {/* <img
-              src="/Ngo.jpg?height=120&width=160"
-              alt="NGO volunteers"
-              className="w-full h-32 object-cover hover:opacity-90 transition-opacity rounded-2xl"
-            />
-            <img
-              src="/donate.jpeg?height=120&width=160"
-              alt="Food distribution"
-              className="w-full h-32 object-cover hover:opacity-90 transition-opacity"
-            />
-            <img
-              src="/FoodDistribution.jpg?height=120&width=160"
-              alt="Happy recipients"
-              className="w-full h-32 object-cover hover:opacity-90 transition-opacity"
-            />
-            <img
-              src="/deliver.jpeg?height=120&width=160"
-              alt="Happy recipients"
-              className="w-full h-32 object-cover hover:opacity-90 transition-opacity rounded-2xl"
-            /> */}
 
             <Image
               src="/Ngo.jpg"
