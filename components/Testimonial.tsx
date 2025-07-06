@@ -97,7 +97,7 @@ export default function Testimonials() {
                   <Card className="border-none shadow-none bg-transparent">
                     <CardContent className="pt-6">
                       <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 relative z-10">
-                        "{testimonials[current].quote}"
+                        {testimonials[current].quote}
                       </p>
 
                       <div className="flex flex-col items-center">
