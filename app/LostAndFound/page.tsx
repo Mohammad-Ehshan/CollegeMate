@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import { HeroSection } from "./_Component/Hero";
-import { FormSection } from "./_Component/FormSection";
+// import { FormSection } from "./_Component/FormSection";
 import { RecentItemsGrid } from "./_Component/Recent-Items-Grids";
 import { HowItWorks } from "./_Component/HowItWorks";
 import { FeatureHighlights } from "./_Component/FeatureHIghlights";

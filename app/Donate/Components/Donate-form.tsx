@@ -525,7 +525,7 @@ export function DonationForm({ onDonationSubmit }: DonationFormProps) {
             <FormField
               control={form.control}
               name="image"
-              render={({ field }) => (
+              render={({}) => (
                 <FormItem>
                   <FormLabel>Upload Image</FormLabel>
                   <FormControl>

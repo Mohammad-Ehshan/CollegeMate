@@ -830,9 +830,9 @@
 "use client";
 
 import { useUser } from "@clerk/nextjs";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Upload, MapPin, Check, Loader2 } from "lucide-react";
+import { Upload, MapPin, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -845,7 +845,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-import { createLostItemReport, testDbConnection } from "@/utils/db/actions";
+import { createLostItemReport } from "@/utils/db/actions";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { toast } from "sonner";
 
@@ -883,24 +883,24 @@ export default function ReportLostItemForm() {
 
   const [imagePreview, setImagePreview] = useState<string | null>(null);
 
-     function WakeDbOnLoad() {
-    useEffect(() => {
-      const wakeDb = async () => {
-        const res = await testDbConnection();
-        console.log('Wake DB Result:', res);
+  //    function WakeDbOnLoad() {
+  //   useEffect(() => {
+  //     const wakeDb = async () => {
+  //       const res = await testDbConnection();
+  //       console.log('Wake DB Result:', res);
   
-        if (!res.success) {
-          console.error('❌ Neon DB failed to wake:', res.error);
-        } else {
-          console.log('✅ Neon DB is awake and responding.');
-        }
-      };
+  //       if (!res.success) {
+  //         console.error('❌ Neon DB failed to wake:', res.error);
+  //       } else {
+  //         console.log('✅ Neon DB is awake and responding.');
+  //       }
+  //     };
   
-      wakeDb();
-    }, []);
+  //     wakeDb();
+  //   }, []);
   
-    return null; // or return some loader/UI if you want
-  }
+  //   return null; // or return some loader/UI if you want
+  // }
 
   const handleGetLocation = () => {
     if (!navigator.geolocation) {

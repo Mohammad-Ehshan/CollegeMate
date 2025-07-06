@@ -1,7 +1,6 @@
 "use client"
 
-import { useForm, useFormContext } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
+import {  useFormContext } from "react-hook-form"
 import { useState, useTransition } from "react"
 import { Loader2, Upload, MapPin } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -14,8 +13,8 @@ import { Label } from "@/components/ui/label"
 // import { submitReport } from "@/action/submit-report"
 
 export function FormSection() {
-  const [isPending, startTransition] = useTransition()
-  const [imagePreview, setImagePreview] = useState<string | null>(null)
+  const [isPending] = useTransition()
+  const [imagePreview] = useState<string | null>(null)
   
   // const { 
   //   register, 
