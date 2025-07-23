@@ -111,7 +111,7 @@ export const getUserLostItems = async (clerkUserId: string) => {
   }
 };
 
-export const getRecentLostItems = async (limit = 6): Promise<RecentItem[]> => {
+export const getRecentLostItems = async (): Promise<RecentItem[]> => {
   try {
     const items = await db
       .select({
@@ -126,7 +126,6 @@ export const getRecentLostItems = async (limit = 6): Promise<RecentItem[]> => {
       })
       .from(lostItems)
       .orderBy(lostItems.reportedAt)
-      .limit(limit);
     
     // Ensure status is not null - provide a default if needed
     return items.map(item => ({

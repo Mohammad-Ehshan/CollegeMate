@@ -105,14 +105,18 @@ export default function ReportLostItemForm() {
     try {
       // Create image preview
       const reader = new FileReader();
-      reader.onload = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
+
+      const base64: string = await new Promise((resolve, reject) => {
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+
+      setImagePreview(base64);
 
       // Upload to Cloudinary
       const cloudinaryFormData = new FormData();
-      cloudinaryFormData.append("file", reader.result as string);
+      cloudinaryFormData.append("file", base64);
       cloudinaryFormData.append(
         "upload_preset",
         process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET!
@@ -338,7 +342,7 @@ Respond *only* with a JSON object, without any additional text or formatting cha
               <div
                 className={cn(
                   "border-2 border-dashed rounded-2xl p-6 text-center transition-all",
-                  "hover:border-emerald-600 hover:bg-emerald-50/50"
+                  "hover:border-emerald-600 hover:bg-emerald-50/50 cursor-pointer"
                 )}
               >
                 {imagePreview ? (
@@ -454,7 +458,7 @@ Respond *only* with a JSON object, without any additional text or formatting cha
           <Button
             type="submit"
             disabled={isSubmitting || !imagePreview}
-            className="w-full md:w-auto px-8 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-md transition-all hover:shadow-lg"
+            className="w-full md:w-auto px-8 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl shadow-md transition-all hover:shadow-lg cursor-pointer"
           >
             {isSubmitting ? (
               <>
