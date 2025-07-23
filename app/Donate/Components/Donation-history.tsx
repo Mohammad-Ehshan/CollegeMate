@@ -165,20 +165,3 @@ export default function DonationHistoryPage() {
     </div>
   )
 }
-
-
-
-
-
-
-
-
-// // donationhistory.tsx (Server Component)
-// import DonationHistoryTable from './DonationHistoryTable'; // Client Component
-// import { getDonations } from '@/lib/actions';
-
-// export default async function DonationHistoryPage() {
-//   const donations = await getDonations(); // Server-side fetch
-
-//   return <DonationHistoryTable donations={donations} />; // Pass to client
-// }
