@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+python-dotenv
+google-generativeai
+pandas
+torch
+scikit-learn
+sqlalchemy
+opencv-python-headless
+pydantic
+python-multipart
+ultralytics
+
+# python -m uvicorn main:app --reload

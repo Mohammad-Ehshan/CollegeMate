@@ -6,7 +6,8 @@ import {
   timestamp,
   json,
   pgEnum,
-} from 'drizzle-orm/pg-core';
+  date,
+} from 'drizzle-orm/pg-core';;
 
 // Enums
 export const itemCategoryEnum = pgEnum('item_category', [
@@ -18,8 +19,25 @@ export const itemCategoryEnum = pgEnum('item_category', [
   'other',
 ]);
 
+
+export const donationUnitEnum = pgEnum('donation_unit', [
+  'plates',
+  'kgs',
+  'servings',
+  'boxes',
+  'liters',
+]);
+
+export const donationStatusEnum = pgEnum('donation_status', [
+  'PENDING',
+  'SCHEDULED',
+  'DELIVERED',
+  'CANCELLED',
+]);
+
 export const lostItemStatusEnum = pgEnum('lost_status', ['LOST', 'FOUND', 'CLAIMED']);
 export const foundItemStatusEnum = pgEnum('found_status', ['FOUND', 'RETURNED', 'DONATED']);
+
 
 // Lost Items Table with Clerk user integration
 export const lostItems = pgTable('lost_items', {
@@ -62,3 +80,25 @@ export const foundItems = pgTable('found_items', {
 
 export type FoundItem = typeof foundItems.$inferSelect;
 export type NewFoundItem = typeof foundItems.$inferInsert;
+
+
+
+// Donations Table
+export const donations = pgTable('donations', {
+  id: uuid('id').defaultRandom().primaryKey(),
+  foodItem: varchar('food_item', { length: 255 }).notNull(),
+  quantity: varchar('quantity', { length: 50 }).notNull(),
+  unit: donationUnitEnum('unit').notNull(),
+  description: text('description'),
+  bestBefore: date('best_before').notNull(),
+  ngo: varchar('ngo', { length: 255 }).notNull(),
+  imageUrl: varchar('image_url', { length: 512 }),
+  // Clerk user fields
+  clerkUserId: varchar('clerk_user_id', { length: 255 }).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  status: donationStatusEnum('status').default('PENDING'), // You might want to create an enum for status
+});
+
+export type Donation = typeof donations.$inferSelect;
+export type NewDonation = typeof donations.$inferInsert;
+

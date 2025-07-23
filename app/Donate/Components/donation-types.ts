@@ -7,4 +7,12 @@ export interface Donation {
   status: "Pending" | "Delivered";
 }
 
-export type StatusChangeHandler = (id: string, newStatus: "Pending" | "Delivered") => void;
+export type StatusChangeHandler = (
+  id: string, 
+  newStatus: 'PENDING' | 'SCHEDULED' | 'DELIVERED' | 'CANCELLED'
+) => void;
+
+
+export type DonationUnit = 'plates' | 'kgs' | 'servings' | 'boxes' | 'liters';
+
+export type DonationStatus = 'PENDING' | 'SCHEDULED' | 'DELIVERED' | 'CANCELLED';

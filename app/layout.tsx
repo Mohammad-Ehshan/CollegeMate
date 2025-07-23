@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 // import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <Navbar/>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >

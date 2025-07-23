@@ -85,7 +85,7 @@ export default function Navbar() {
           {/* Desktop Auth Buttons & Theme Toggle */}
           <div className="hidden md:flex items-center gap-4">
             {isSignedIn ? (
-              <UserButton afterSignOutUrl="/" />
+              <UserButton/>
             ) : (
               <>
                 <Button
