@@ -54,7 +54,7 @@ export default function Navbar() {
               href="/Donate"
               className="text-gray-700 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-semibold"
             >
-              Canteen
+              Donate
             </Link>
             <Link
               href="/LostAndFound"
